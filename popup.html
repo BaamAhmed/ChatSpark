@@ -16,7 +16,7 @@
 		h1   {color: blue;}
 		p2    {color: #5F5F5F; font-size: 15px;}
 		p {font-size: 14px;}
-		h2 {color: #212121;}
+		h2 {color: #212121; font-size: 20px;}
 		label {font-size: 15px;}
 
 		button{background-color: #DB560C; border-radius: 6px; border-color:0; block-size: 60px; width: 375px; color: white; border: none; margin-right: 20px;
@@ -42,11 +42,14 @@
 <body style="padding: 20px; width: 25rem;">
 	<div id="responseContainer"></div>
 	<h2>LinkedIn User Summary</h2>
-    <p style="font-size: 16px; font-weight: bold;" id='target_name'>Name Loading...</p>
-    <p style="padding-top: -100px;" id='target_headline'>Headline Loading...</p>
-	<p class="target_summary" id="target_summary">Summary Loading...</p>
-	<h2>Formality</h2>
-	<p2>The tone that your message will express</p2>
+
+	<p style="font-size: 17px; font-weight: bold; margin-bottom: 0;" id='target_name'>Name Loading...</p>
+	<i></em><p style="margin-top: 0px; margin-bottom: 7px;" id='target_headline'> Headline Loading...</p></i>
+
+	<p class="target_summary" style="margin-top: 0; color: #5F5F5F;" id="target_summary">Summary Loading...</p>
+
+	<h2 style="margin-bottom: 4px;">Formality</h2>
+	<p2 style="margin-top: 0;">The tone that your message will express</p2>
 	<br><br>
 	<input type="radio" id="professional" name="tone" value="professional">
 	<label for="professional">Professional</label><br>	
@@ -55,8 +58,8 @@
 	<input type="radio" id="fun" name="tone" value="fun">
 	<label for="fun">Fun</label><br>
 
-	<h2>Message Intent</h2>
-	<p2>The reason for your communication</p2>
+	<h2 style="margin-bottom: 4px;">Message Intent</h2>
+	<p2 style="margin-top: 0;">The reason for your communication</p2>
 
 <br><br>
 	<select id="intention" name="intention" type="">

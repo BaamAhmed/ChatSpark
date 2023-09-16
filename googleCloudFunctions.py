@@ -4,7 +4,7 @@ import json
 
 
 def make_msg(target, myself=''):
-    co = Client('Dr6b1mRHpY9X6q1k4bOyeD1sVF7ccNoOvXIo9iSe')
+    co = Client('') # INSTERT API KEY HERE
     target_profile_sum = co.summarize(
         text=json.dumps(target),
         temperature=0.5, 

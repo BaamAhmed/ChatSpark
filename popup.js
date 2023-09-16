@@ -9,6 +9,12 @@ window.addEventListener('load', function (evt) {
 		window.location.href = 'messages.html'
 	})
 
+	let copyButton = document.getElementsByClassName('copyButton')[0]
+	copyButton.addEventListener('click', function () {
+		navigator.clipboard.writeText(document.getElementById('responseBody').innerText)
+		copyButton.innerText = "Copied!"
+	})
+
 
 	
 	
@@ -24,13 +30,7 @@ chrome.runtime.onMessage.addListener(function ({target_name, target_headline, ta
 	// 	allExp += target_experiences[i] + "\n \n"
 	// }
 	// document.getElementById('target_experiences').innerHTML = allExp;
-	let dropdown = document.getElementById('intention')
-	let chosen_intention = 'connect'
-	dropdown.addEventListener('change', function (e) {
-		chosen_intention = e.target.value
-		console.log(chosen_intention)
-	})
-	let targetObj = {intent: chosen_intention, target: {name: target_name, job: target_headline, about: target_about, experience: target_experiences}}
+	let targetObj = {intent: document.getElementById('intention').value, target: {name: target_name, job: target_headline, about: target_about, experience: target_experiences}}
 	document.getElementsByClassName('target_summary')[0].innerText = 'Summary loading...'
 	fetch('https://us-central1-linkedlist-399209.cloudfunctions.net/summary', {
 		method: 'POST',
@@ -45,8 +45,9 @@ chrome.runtime.onMessage.addListener(function ({target_name, target_headline, ta
 	let introButton = document.getElementsByClassName('introButton')[0]
 	console.log(introButton)
 	introButton.addEventListener('click', function () {
-		targetObj.intent = chosen_intention
-		document.getElementById('responseContainer').innerText = 'Response Loading... (Please allow for up to a minute for response to load)'
+		window.scrollTo(0,0)
+		targetObj.intent = document.getElementById('intention').value
+		document.getElementById('responseContainer').innerText = 'Response Loading... (Please allow for up to 30 seconds for the response to load)'
 		fetch('https://us-central1-linkedlist-399209.cloudfunctions.net/test-linked-list', {
 			method: 'POST',
 			body: JSON.stringify(targetObj),
@@ -54,8 +55,14 @@ chrome.runtime.onMessage.addListener(function ({target_name, target_headline, ta
 			'Content-Type': 'application/json'
 			} })
 		.then(data => data.text()) // leave as is if sentence being returned, change to json if object being returned
-		.then(body => document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 10px; padding: 10px;"><h3>Response:</h3><p>${body}</p></div>`)
-	})
+		.then(body => {
+			document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 10px; padding: 10px;"><h3>Response:</h3><p id="responseBody">${body}</p><button class="copyButton" style="border-radius: 10px; padding: 10px; background-color: rgba(255, 164, 99 ,0.5)">Copy</button></div>`
+			let copyButton = document.getElementsByClassName('copyButton')[0]
+			copyButton.addEventListener('click', function () {
+				navigator.clipboard.writeText(document.getElementById('responseBody').innerText)
+				copyButton.innerText = "Copied!"
+			})
+		})})
 });
 
 

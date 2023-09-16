@@ -9,10 +9,6 @@ window.addEventListener('load', function (evt) {
 		window.location.href = 'messages.html'
 	})
 
-	let settingsButton = document.getElementsByClassName('settingsButton')[0]
-	settingsButton.addEventListener('click', function () {
-		window.location.href = 'settings.html'
-	})
 
 	
 	
@@ -28,7 +24,13 @@ chrome.runtime.onMessage.addListener(function ({target_name, target_headline, ta
 	// 	allExp += target_experiences[i] + "\n \n"
 	// }
 	// document.getElementById('target_experiences').innerHTML = allExp;
-	let targetObj = {name: target_name, job: target_headline, about: target_about, experience: target_experiences}
+	let dropdown = document.getElementById('intention')
+	let chosen_intention = 'connect'
+	dropdown.addEventListener('change', function (e) {
+		chosen_intention = e.target.value
+		console.log(chosen_intention)
+	})
+	let targetObj = {intent: chosen_intention, target: {name: target_name, job: target_headline, about: target_about, experience: target_experiences}}
 	document.getElementsByClassName('target_summary')[0].innerText = 'Summary loading...'
 	fetch('https://us-central1-linkedlist-399209.cloudfunctions.net/summary', {
 		method: 'POST',
@@ -43,6 +45,7 @@ chrome.runtime.onMessage.addListener(function ({target_name, target_headline, ta
 	let introButton = document.getElementsByClassName('introButton')[0]
 	console.log(introButton)
 	introButton.addEventListener('click', function () {
+		targetObj.intent = chosen_intention
 		document.getElementById('responseContainer').innerText = 'Response Loading... (Please allow for up to a minute for response to load)'
 		fetch('https://us-central1-linkedlist-399209.cloudfunctions.net/test-linked-list', {
 			method: 'POST',

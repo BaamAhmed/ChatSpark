@@ -2,9 +2,31 @@ import functions_framework
 import json
 from cohere import Client
 
-co = Client('API_KEY')
+co = Client('') # INSTERT API KEY HERE
 
-def make_msg(intent, target, myself=''):
+def create_response(names, conversation, intent):
+    intent_prompt = ''
+    if intent == 'mentorship':
+        intent_prompt = f'he wants to ask {names["target"]} for mentorship'
+    elif intent == 'inquiry':
+        intent_prompt = f'he wants to ask {names["target"]} about a job posting'
+    elif intent == 'recruiter':
+        intent_prompt = f'he wants to invite {names["target"]} to apply for an open job'
+    else:
+        intent_prompt = 'he just wants to keep the conversation going professionally'
+    response = co.generate(
+        model='command',
+        prompt=f'This is a conversation between {names["user"]} and {names["target"]}\n\n{conversation}\n\n Considering the above dialog, generate a message that {names["user"]} should send if ' + intent_prompt,
+        max_tokens=302,
+        temperature=0.9,
+        k=47,
+        stop_sequences=[],
+        return_likelihoods='NONE')
+  
+    return response.generations[0].text
+
+def make_msg(target, myself=''):
+    
     target_profile_sum = co.summarize(
         text=json.dumps(target),
         model='command-light',

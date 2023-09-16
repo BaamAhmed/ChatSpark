@@ -4,6 +4,7 @@ chrome.runtime.sendMessage(getMessageData());
 
 function getMessageData() {
     let messages = []
+    let targetName = document.getElementsByClassName('app-aware-link  profile-card-one-to-one__profile-link')[0]
     let rawMsgs = document.getElementsByClassName('msg-s-event-listitem__body t-14 t-black--light t-normal')
     let rawAuthors = document.getElementsByClassName('msg-s-message-group__meta')
     for (let i = 0; i < rawAuthors.length && i < rawMsgs.length; i++) {
@@ -12,6 +13,7 @@ function getMessageData() {
     if (messages.length > 6) {
         messages = messages.slice(-6)
     }
-    return messages
+    let names = {user: rawAuthors[0].innerText, target: targetName}
+    return {names, messages}
 }
 

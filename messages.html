@@ -9,7 +9,8 @@
 <body style="width: 300px;">
     <h3>Messages</h3>
     <p id="messages">No messages found. Are you sure you're at the correct page? (Make sure you're on the "Messaging" page on LinkedIn)</p>
-	
+	<br>
+    <div id="responseContainer"></div>
     <br>
 	<input type="radio" id="polite" name="tone" value="polite">
 	<label for="polite">Polite</label><br>
@@ -20,9 +21,9 @@
 	<br>
 	<select id="intention" name="intention" type="">
         <option value="mentorship">Seeking mentorship</option>
-        <option value="connect">Invitation to connect on LinkedIn</option>
         <option value="inquiry">Inquiring about a job posting</option>
         <option value="recruiter">Hiring for a role</option>
+        <option value="stall">Just keep the conversation going</option>
     </select>
     
     <button class="messageButton">Generate Message</button>

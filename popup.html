@@ -16,11 +16,22 @@
 		h1   {color: blue;}
 		p2    {color: #5F5F5F; font-size: 15px;}
 		p {font-size: 14px;}
+		h2 {color: #212121;}
 
-		button{background-color: #DB560C; border-radius: 6px; border-color:0; block-size: 60px; color: white; border: none; margin-right: 20px;
+		button{background-color: #DB560C; border-radius: 6px; border-color:0; block-size: 60px; width: 375px; color: white; border: none; margin-right: 20px;
 		}
 
-		select{background-color: white; border-radius: 6px; border-color: #FFB48A; block-size: 60px; color: #DB560C; width: 375px; padding-left: 10px;}
+		select{background-color: white; border-radius: 6px; border-color: #FFB48A; block-size: 60px; color: #DB560C; width: 375px; padding-left: 10px; font-size: 15px;}
+
+
+		.msgsButton{
+			background-color: white; border: none; color: #DB560C; font-size: 15px;
+		}
+
+		.introButton{
+			font-size: 15px;
+			text-align: center;
+		}
 
 	</style>
 
@@ -28,10 +39,10 @@
 
 <body style="margin: 20px; width: 25rem;">
 	<div id="responseContainer"></div>
-	<h2 style="width: 300px;">LinkedIn User Summary</h2>
+	<!-- <h2 style="width: 300px;">LinkedIn User Summary</h2>
     <p id='target_name'>Name Loading...</p>
     <p id='target_headline'>Headline Loading...</p>
-	<p class="target_summary" id="target_summary">Summary Loading...</p>
+	<p class="target_summary" id="target_summary">Summary Loading...</p> -->
 
 	<h2>Formality</h2>
 	<p2>The tone that your message will express</p2>
@@ -43,7 +54,7 @@
 	<input type="radio" id="fun" name="tone" value="fun">
 	<label for="fun">Fun</label><br>
 
-	<h2>Intent of Message</h2>
+	<h2>Message Intent</h2>
 	<p2>The reason for your communication</p2>
 
 <br><br>
@@ -58,8 +69,8 @@
 	<br>
 	<br>
 	<!--<button class="settingsButton">Settings</button>-->
-	<button class="introButton">Generate Initial Message</button>
+	<button class="introButton">  <img src="generate.svg" align="center" alt="pen"> Generate Message</button>
 
-	<button class="msgsButton">Generate Response Message </button>
+	<button class="msgsButton"> <u> Switch to conversation mode </u></button>
 </body>
 </html>

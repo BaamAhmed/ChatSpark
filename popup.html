@@ -37,8 +37,8 @@
 
 </head>
 
-<body style="margin: 20px; width: 25rem;">
-	<div style="border-radius: 15px; background-color: rgba(255, 164, 99 ,0.5); padding: 10px" id="responseContainer">Generated message will appear here</div>
+<body style="padding: 20px; width: 25rem;">
+	<div id="responseContainer"></div>
 	<h2>LinkedIn User Summary</h2>
     <p id='target_name'>Name Loading...</p>
     <p id='target_headline'>Headline Loading...</p>
@@ -47,11 +47,11 @@
 	<p2>The tone that your message will express</p2>
 	<br><br>
 	<input type="radio" id="professional" name="tone" value="professional">
-	<label for="professional">Professional</label><br>	
+	<label style="font-size: 15px;" for="professional">Professional</label><br>	
 	<input type="radio" id="casual" name="tone" value="casual">
-	<label for="casual">Casual</label><br>
+	<label style="font-size: 15px;" for="casual">Casual</label><br>
 	<input type="radio" id="fun" name="tone" value="fun">
-	<label for="fun">Fun</label><br>
+	<label style="font-size: 15px;" for="fun">Fun</label><br>
 
 	<h2>Message Intent</h2>
 	<p2>The reason for your communication</p2>
@@ -68,7 +68,7 @@
 	<br>
 	<br>
 	<!--<button class="settingsButton">Settings</button>-->
-	<button class="introButton">  <img src="generate.svg" align="center" alt="pen"> Generate Message</button>
+	<button class="introButton">  <img src="generate.svg" style="margin-right: 10px; justify-content: center;" alt="pen"> Generate Message</button>
 
 	<button class="msgsButton"> <u> Switch to conversation mode </u></button>
 </body>

@@ -47,7 +47,7 @@ chrome.runtime.onMessage.addListener(function ({target_name, target_headline, ta
 	introButton.addEventListener('click', function () {
 		window.scrollTo(0,0)
 		targetObj.intent = document.getElementById('intention').value
-		document.getElementById('responseContainer').innerText = 'Response Loading... (Please allow for up to 30 seconds for the response to load)'
+		document.getElementById('responseContainer').innerHTML = '<div style="border-radius: 15px; background-color: rgba(255, 164, 99 ,0.5); padding: 10px">Response Loading... (Please allow for up to 30 seconds for the response to load)</div>'
 		fetch('https://us-central1-linkedlist-399209.cloudfunctions.net/test-linked-list', {
 			method: 'POST',
 			body: JSON.stringify(targetObj),
@@ -56,7 +56,7 @@ chrome.runtime.onMessage.addListener(function ({target_name, target_headline, ta
 			} })
 		.then(data => data.text()) // leave as is if sentence being returned, change to json if object being returned
 		.then(body => {
-			document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 10px; padding: 10px;"><h3>Response:</h3><p id="responseBody">${body}</p><button class="copyButton" style="border-radius: 10px; padding: 10px; background-color: rgba(255, 164, 99 ,0.5)">Copy</button></div>`
+			document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 15px; background-color: rgba(255, 164, 99 ,0.5); padding: 10px"><div style="border-radius: 10px; padding: 10px;"><h3>Response:</h3><p id="responseBody">${body}</p><button class="copyButton" style="border-radius: 10px; padding: 10px; background-color: rgba(255, 164, 99 ,0.5)">Copy</button></div></div>`
 			let copyButton = document.getElementsByClassName('copyButton')[0]
 			copyButton.addEventListener('click', function () {
 				navigator.clipboard.writeText(document.getElementById('responseBody').innerText)

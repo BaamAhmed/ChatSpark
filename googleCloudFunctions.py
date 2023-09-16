@@ -4,34 +4,41 @@ from cohere import Client
 
 co = Client('API_KEY')
 
-def make_msg(names, intent, target, myself=''):
-    target_profile_sum = get_summary(target)
+def make_msg(intent, target, myself=''):
+    target_profile_sum = co.summarize(
+        text=json.dumps(target),
+        model='command-light',
+        temperature=0.5, 
+        length='long',
+        extractiveness='medium'
+    )
 
     if intent == "mentorship":
         # add "names['user'] intends to ask names['target'] for mentorship and advice" to prompt
         if len(myself) == 0:
-            prompt_text = f"My name is {names['user']}. I am looking for mentorship and advice. Write a short paragraph including 3 sentences greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"Write a short and personal message that expresses my interest in receiving mentorship and advice from the following individual: {target_profile_sum.summary}"
         else:
-            prompt_text = f"Given the profile: {json.dumps(myself)}, I am looking for mentorship and advice. Write a short paragraph including 3 sentences including greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"Given my profile: {json.dumps(myself)}, write a short and personal message that expresses my interest in receiving mentorship and advice from the following individual: {target_profile_sum.summary}"
     elif intent == "connect":
         # add "names['user'] intends to request names['target'] to connect on LinkedIn" to prompt
         if len(myself) == 0:
-            prompt_text = f"My name is {names['user']}. I want to grow my network. Write a short paragraph including 3 sentences greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"Write a short and personal message that expresses my interest in connecting with the following individual on LinkedIn: {target_profile_sum.summary}"
         else:
-            prompt_text = f"Given the profile: {json.dumps(myself)}, I want to grow my network. Write a short paragraph including 3 sentences greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"Given my profile: {json.dumps(myself)}, write a short and personal message that expresses my interest in connecting with the following individual on LinkedIn: {target_profile_sum.summary}"
     elif intent == "inquiry":
         # add "names['user'] intends to ask names['target'] about a job posting" to prompt
         if len(myself) == 0:
-            prompt_text = f"My name is {names['user']}. I want to inquiry about a job posting. Write a short paragraph including 3 sentences greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"I want to inquire about a job posting. Write a short message to this individual expressing this fact: {target_profile_sum.summary}"
         else:
-            prompt_text = f"Given the profile: {json.dumps(myself)}, I want to inquiry about a job posting. Write a short paragraph including 3 sentences greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"Given my profile: {json.dumps(myself)}, write a short message to this individual to inquire about a job posting: {target_profile_sum.summary}"
     elif intent == "recruiter":
         # add "names['user'] intends to scout names['target'] for a new role in their company" to prompt
         if len(myself) == 0:
-            prompt_text = f"My name is {names['user']}. I am a recruiter, and I want to connect with {names['target']} which is a potential candidate. Write a short paragraph including 3 sentences greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"I am a recruiter. Write a short message to the following individual to express interest in recruiting them: {target_profile_sum.summary}"
         else:
-            prompt_text = f"Given the profile: {json.dumps(myself)}, I am a recruiter, and I want to connect with {names['target']} which is a potential candidate. Write a short paragraph including 3 sentences greeting, introduce myself, and express interest to introduce myself based on this information, considering the target's profile: {target_profile_sum.summary}"
+            prompt_text = f"Given my profile as a recruiter: {json.dumps(myself)}, write a short message to the following individual to express interest in recruiting them:  {target_profile_sum.summary}"
 
+    prompt_text = 'All responses must be strictly less than 40 words, with no exceptions. ' + prompt_text
     response = co.generate(
         prompt=prompt_text,
         model='command-light',

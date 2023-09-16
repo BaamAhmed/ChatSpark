@@ -19,16 +19,27 @@ window.addEventListener('load', function (evt) {
 });
 
 // Listen to messages from the payload.js script and write to popout.html
-chrome.runtime.onMessage.addListener(function ({target_name, target_headline, target_about, target_experiences}) {
+chrome.runtime.onMessage.addListener(function ({target_name, target_headline, target_about, target_summary, target_experiences}) {
 	document.getElementById('target_name').innerText = target_name;
-	document.getElementById('target_about').innerText = target_about;
+	document.getElementById('target_summary').innerText = target_summary;
 	document.getElementById('target_headline').innerText = target_headline;
-	let allExp = ""
-	for(let i = 0; i < target_experiences.length; i++) {
-		allExp += target_experiences[i] + "\n \n"
-	}
-	document.getElementById('target_experiences').innerHTML = allExp;
+	// let allExp = ""
+	// for(let i = 0; i < target_experiences.length; i++) {
+	// 	allExp += target_experiences[i] + "\n \n"
+	// }
+	// document.getElementById('target_experiences').innerHTML = allExp;
 	let targetObj = {name: target_name, job: target_headline, about: target_about, experience: target_experiences}
+	document.getElementsByClassName('target_summary')[0].innerText = 'Summary loading...'
+	fetch('https://us-central1-linkedlist-399209.cloudfunctions.net/summary', {
+		method: 'POST',
+		body: JSON.stringify(targetObj),
+		headers:{
+		'Content-Type': 'application/json'
+	} })
+	.then(data => data.text())
+	.then(body => document.getElementsByClassName('target_summary')[0].innerText = body)
+	
+	
 	let introButton = document.getElementsByClassName('introButton')[0]
 	console.log(introButton)
 	introButton.addEventListener('click', function () {

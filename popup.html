@@ -9,12 +9,26 @@
 <body style="margin: 20px; width: 25rem;">
 	<div id="responseContainer"></div>
 	<h3 style="width: 300px;">Parsed Information:</h1>
-    <p id='target_name'>Loading...</p>
-    <p id='target_headline'>Loading...</p>
-    <p id='target_about'>Loading...</p>
-    <p id='target_experiences'>Loading...</p>
+    <p id='target_name'>Name Loading...</p>
+    <p id='target_headline'>Headline Loading...</p>
+	<p class="target_summary" id="target_summary">Summary Loading...</p>
+
+	<br>
+	<input type="radio" id="polite" name="tone" value="polite">
+	<label for="polite">Polite</label><br>
+	<input type="radio" id="casual" name="tone" value="casual">
+	<label for="casual">Casual</label><br>
+	<input type="radio" id="professional" name="tone" value="professional">
+	<label for="professional">Professional</label>	
+	<br>
+	<select id="intention" name="intention" type="">
+        <option value="mentorship">Seeking mentorship</option>
+        <option value="connect">Invitation to connect on LinkedIn</option>
+        <option value="inquiry">Inquiring about a job posting</option>
+        <option value="recruiter">Hiring for a role</option>
+    </select>
+	<button class="settingsButton">Settings</button>
 	<button class="introButton">Generate Introduction</button>
 	<button class="msgsButton">Switch to Messaging Mode</button>
-	<button class="settingsButton">Settings</button>
 </body>
 </html>

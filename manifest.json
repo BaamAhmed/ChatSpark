@@ -7,14 +7,15 @@
 	"author": "@chatspark",
 
 	"background": {
-		"scripts": ["popup.js"],
+		"scripts": ["popup.js", "messages.js", "settings.js"],
 		"persistent": true
 	},
 
 	"permissions": [
         "tabs",
         "http://*/",
-        "https://*/"
+        "https://*/",
+		"storage"
     ],
 	"browser_action": {
 		"default_icon": "insignia.png",

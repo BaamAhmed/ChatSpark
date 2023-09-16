@@ -16,11 +16,13 @@ chrome.runtime.onMessage.addListener(function ({names, messages}) {
         bigMsg += messages[i] + '\n \n'
     }
     if (bigMsg.length > 0) {
-        document.getElementById('messages').innerText = bigMsg
+        document.getElementById('messages').innerText = `${messages.length} messages successfully parsed. (Note that for longer conversations, only the 6 latest messages are considered when generating a new message)`
     }
     let messageButton = document.getElementsByClassName('messageButton')[0]
 
     messageButton.addEventListener('click', function () {
+        window.scrollTo(0,0)
+        document.getElementById('responseContainer').innerHTML = '<div style="border-radius: 15px; background-color: rgba(255, 164, 99 ,0.5); padding: 10px">Response Loading... (Please allow for up to 30 seconds for the response to load)</div>'
         let msgObj = {names: names, conversation: bigMsg, intent: document.getElementById('intention').value}
         fetch('https://us-central1-linkedlist-399209.cloudfunctions.net/messaging', {
 			method: 'POST',
@@ -29,6 +31,13 @@ chrome.runtime.onMessage.addListener(function ({names, messages}) {
 			'Content-Type': 'application/json'
 			} })
 		.then(data => data.text()) // leave as is if sentence being returned, change to json if object being returned
-		.then(body => document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 10px; padding: 10px;"><h3>Response:</h3><p>${body}</p></div>`)
+		.then(body => {
+            document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 15px; background-color: rgba(255, 164, 99 ,0.5); padding: 10px"><div style="border-radius: 10px; padding: 10px;"><h3>Response:</h3><p id="responseBody">${body}</p><button class="copyButton" style="border-radius: 10px; padding: 10px; background-color: rgba(255, 164, 99 ,0.5)">Copy</button></div></div>`
+            let copyButton = document.getElementsByClassName('copyButton')[0]
+			copyButton.addEventListener('click', function () {
+				navigator.clipboard.writeText(document.getElementById('responseBody').innerText)
+				copyButton.innerText = "Copied!"
+			})
+        })
     })
 });

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Hello World Extension</title>
+	<title>ChatSpark</title>
 	<script src="popup.js"></script>
 	<img src="logo.svg" alt="ChatSpark">
 	<h2 style="font-family: P"></h2>
@@ -17,6 +17,7 @@
 		p2    {color: #5F5F5F; font-size: 15px;}
 		p {font-size: 14px;}
 		h2 {color: #212121;}
+		label {font-size: 15px;}
 
 		button{background-color: #DB560C; border-radius: 6px; border-color:0; block-size: 60px; width: 375px; color: white; border: none; margin-right: 20px;
 		}
@@ -32,6 +33,7 @@
 			font-size: 15px;
 			text-align: center;
 		}
+		
 
 	</style>
 
@@ -47,11 +49,11 @@
 	<p2>The tone that your message will express</p2>
 	<br><br>
 	<input type="radio" id="professional" name="tone" value="professional">
-	<label style="font-size: 15px;" for="professional">Professional</label><br>	
+	<label for="professional">Professional</label><br>	
 	<input type="radio" id="casual" name="tone" value="casual">
-	<label style="font-size: 15px;" for="casual">Casual</label><br>
+	<label for="casual">Casual</label><br>
 	<input type="radio" id="fun" name="tone" value="fun">
-	<label style="font-size: 15px;" for="fun">Fun</label><br>
+	<label for="fun">Fun</label><br>
 
 	<h2>Message Intent</h2>
 	<p2>The reason for your communication</p2>
@@ -68,7 +70,7 @@
 	<br>
 	<br>
 	<!--<button class="settingsButton">Settings</button>-->
-	<button class="introButton">  <img src="generate.svg" style="margin-right: 10px; justify-content: center;" alt="pen"> Generate Message</button>
+	<button class="introButton">  <img src="generate.svg" align="center" style="margin-right: 10px; justify-content: center;" alt="pen"> Generate Message</button>
 
 	<button class="msgsButton"> <u> Switch to conversation mode </u></button>
 </body>

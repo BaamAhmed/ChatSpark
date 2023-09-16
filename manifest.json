@@ -1,10 +1,10 @@
 {
 	"manifest_version": 2,
 
-	"name": "Hello World",
-	"description": "A simple page-scraping extension for Chrome",
+	"name": "Chat Spark",
+	"description": "Your AI Networking Assistant",
 	"version": "1.0",
-	"author": "@thomasforth",
+	"author": "@chatspark",
 
 	"background": {
 		"scripts": ["popup.js"],
@@ -17,7 +17,7 @@
         "https://*/"
     ],
 	"browser_action": {
-		"default_icon": "logo.png",
+		"default_icon": "insignia.png",
 		"default_popup": "popup.html"
 	}
 }

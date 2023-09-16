@@ -4,31 +4,60 @@
 <head>
 	<title>Hello World Extension</title>
 	<script src="popup.js"></script>
+	<img src="logo.svg" alt="ChatSpark">
+	<h2 style="font-family: P"></h2>
+	<radio style="width: 1.5em; height: 1.5em;"</radio>
+
+	<style>
+		/*body {background-color: powderblue;}
+		*/
+
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+		h1   {color: blue;}
+		p2    {color: #5F5F5F;}
+
+		button{background-color: #DB560C; border-radius: 6px; border-color:0; block-size: 60px; color: white; border: none; margin-right: 20px;
+		}
+
+	</style>
+
 </head>
 
 <body style="margin: 20px; width: 25rem;">
 	<div id="responseContainer"></div>
-	<h3 style="width: 300px;">Parsed Information:</h1>
+	<h2 style="width: 300px;">LinkedIn User Summary</h2>
     <p id='target_name'>Name Loading...</p>
     <p id='target_headline'>Headline Loading...</p>
 	<p class="target_summary" id="target_summary">Summary Loading...</p>
 
-	<br>
-	<input type="radio" id="polite" name="tone" value="polite">
-	<label for="polite">Polite</label><br>
+	<h2>Formality</h2>
+	<p2>The tone that your message will express</p2>
+	<br><br>
+	<input type="radio" id="professional" name="tone" value="professional">
+	<label for="professional">Professional</label><br>	
 	<input type="radio" id="casual" name="tone" value="casual">
 	<label for="casual">Casual</label><br>
-	<input type="radio" id="professional" name="tone" value="professional">
-	<label for="professional">Professional</label>	
-	<br>
+	<input type="radio" id="fun" name="tone" value="fun">
+	<label for="fun">Fun</label><br>
+
+	<h2>Intent of Message</h2>
+	<p2>The reason for your communication</p2>
+
+	<button>
 	<select id="intention" name="intention" type="">
         <option value="mentorship">Seeking mentorship</option>
         <option value="connect">Invitation to connect on LinkedIn</option>
         <option value="inquiry">Inquiring about a job posting</option>
         <option value="recruiter">Hiring for a role</option>
     </select>
-	<button class="settingsButton">Settings</button>
-	<button class="introButton">Generate Introduction</button>
-	<button class="msgsButton">Switch to Messaging Mode</button>
+	</button>
+	
+	<br>
+	<br>
+	<!--<button class="settingsButton">Settings</button>-->
+	<button class="introButton">Generate Initial Message</button>
+
+	<button class="msgsButton">Generate Response Message </button>
 </body>
 </html>

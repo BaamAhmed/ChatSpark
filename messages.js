@@ -32,7 +32,7 @@ chrome.runtime.onMessage.addListener(function ({names, messages}) {
 			} })
 		.then(data => data.text()) // leave as is if sentence being returned, change to json if object being returned
 		.then(body => {
-            document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 15px; background-color: rgba(255, 164, 99 ,0.5); padding: 10px"><div style="border-radius: 10px; padding: 10px;"><h3>Response:</h3><p id="responseBody">${body}</p><button class="copyButton" style="border-radius: 10px; padding: 10px; background-color: rgba(255, 164, 99 ,0.5)">Copy</button></div></div>`
+            document.getElementById('responseContainer').innerHTML = `<div style="border-radius: 15px; background-color: rgba(255, 164, 99 ,0.5); padding: 10px"><div style="border-radius: 10px; padding: 10px;"><h2>Response</h2><p id="responseBody">${body}</p><button class="copyButton" style="width: 100%; border-radius: 6px; padding: 3px; font-size: 16px; font-weight: 'bold'; color: #000000; background-color: #ffffff"> <img src="copy.svg" alt="Copy" align="center" width="25" height="25" > Copy</button></div></div>`
             let copyButton = document.getElementsByClassName('copyButton')[0]
 			copyButton.addEventListener('click', function () {
 				navigator.clipboard.writeText(document.getElementById('responseBody').innerText)

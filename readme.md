@@ -4,8 +4,8 @@ Your personal AI networking assistant
 
 ## Team Members:
 * Bassam Ahmed ([LinkedIn](https://www.linkedin.com/in/baamahmed/), [GitHub](https://github.com/BaamAhmed), [Portfolio](https://baamahmed.me))
-* Lanh (Lukas) Huang ([LinkedIn](https://www.linkedin.com/in/lanh/), [GitHub](), [Portfolio]())
-* Jennifer Huynh ([LinkedIn](https://www.linkedin.com/in/jennlh/), [GitHub](), [Portfolio]())
+* Lanh (Lukas) Huang ([LinkedIn](https://www.linkedin.com/in/lanh/), [GitHub](https://github.com/lanhhoang), [Portfolio](https://www.lukash.dev/))
+* Jennifer Huynh ([LinkedIn](https://www.linkedin.com/in/jennlh/), [GitHub](https://github.com/jennlh), [Portfolio](https://jennlh.ca/))
 * Son Pham ([LinkedIn](https://www.linkedin.com/in/sphamee/), [GitHub](), [Portfolio]())
 
 ## Installation

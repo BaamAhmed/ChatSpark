@@ -1,0 +1,35 @@
+Bassam Ahmed 1:24 PM: Hey Juthika!
+My name's Bassam and I'm a second-year CS student at UW; I saw your profile while checking out Faire's page on LinkedIn, and would love to connect with a fellow UWaterloo student! :)
+
+Juthika Hoque (She/Her) 1:24 PM: hey! nice to connect with you :)
+
+Bassam Ahmed 5:29 PM: Thanks for connecting!
+I guess we're both looking for Summer 2024 internships lol, how are you finding the co-op market so far?
+
+Juthika Hoque (She/Her) 10:57 AM: it’s not horrible! not as bad as the past couple terms at least
+
+Bassam Ahmed 1:42 PM: Oh that’s good to hear!
+Especially when there’s so much doom and gloom about the tech market right now
+What area are you searching in, if you don’t mind sharing? (Like web dev, app dev, embedded, etc.)
+
+
+Juthika Hoque (She/Her) 2:59 PM: mostly web dev! what about you?
+
+Bassam Ahmed 9:47 PM: Same! I started in web dev and that's where I'm most proficient I think but I'm trying to explore other areas, primarily data stuff with python and some low level embedded stuff, just to get a feel for different things.
+
+How's work at Faire, if you don't mind sharing? I would love to know what kinda stack you're using and impact that you're able to have over there :))
+
+Juthika Hoque (She/Her) 10:53 PM: work at Faire is really good! the culture is amazing and interns get treated as full timers, so you'd get pretty good projects with a big impact on the users
+
+for the frontend the stack is React Typescript & ProtoBuffers for api calls
+for the backend the stack is Kotlin (JPA) & MySQL
+
+Bassam Ahmed 6:14 AM: That sounds awesome!
+Also another question: did you apply for Faire externally or through WaterlooWorks? Asking because there’s a Data Science internship open on LinkedIn right now but there’s *so* many applicants it’s actually kinda demotivating lol :,))
+
+Juthika Hoque (She/Her) 3:54 PM: i applied through waterloo works! there’s a better chance to get through that way probably
+
+Bassam Ahmed 8:25 PM: but yeah i get that external apps are always very demotivating 😅 apply anyways tho!! you never know
+
+Juthika Hoque (She/Her) 7:23 PM: Ah I see, makes sense.
+Thanks for the great advice, will definitely need it during the upcoming recruiting season! :))

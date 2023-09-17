@@ -2,25 +2,79 @@
 <html>
 
 <head>
-	<title>Hello World Extension</title>
+	<title>ChatSpark</title>
 	<script src="popup.js"></script>
+	<img src="logo.svg" alt="ChatSpark">
+	<h2 style="font-family: P"></h2>
+
+	<style>
+		/*body {background-color: powderblue;}
+		*/
+
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+		h1   {color: blue;}
+		p2    {color: #5F5F5F; font-size: 15px;}
+		p {font-size: 14px;}
+		h2 {color: #212121; font-size: 20px;}
+		label {font-size: 15px;}
+
+		button{background-color: #DB560C; border-radius: 6px; border-color:0; block-size: 60px; width: 375px; color: white; border: none; margin-right: 20px;
+		}
+
+		select{background-color: white; border-radius: 6px; border-color: #FFB48A; block-size: 60px; color: #DB560C; width: 375px; padding-left: 10px; font-size: 15px;}
+
+
+		.msgsButton{
+			background-color: white; border: none; color: #DB560C; font-size: 15px;
+		}
+
+		.introButton{
+			font-size: 15px;
+			text-align: center;
+		}
+	
+
+	</style>
+
 </head>
 
-<body>
-	<h3>Response:</h3>
-	<p id="response">No response yet...</p>
-	<h3 style="width: 300px;">Parsed Information</h1>
-	<h4>Name:</h4>
-    <p id='target_name'>Loading...</p>
-	<h4>Headline:</h4>
-    <p id='target_headline'>Loading...</p>
-	<h4>About:</h4>
-    <p id='target_about'>Loading...</p>
-	<h4>Experiences:</h4>
-    <p id='target_experiences'>Loading...</p>
-	<h4>Workplace:</h4>
-    <p id='target_workplace'>Loading...</p>
+<body style="padding: 20px; width: 25rem;">
+	<div id="responseContainer"></div>
+	<h2>LinkedIn User Summary</h2>
 
-	<input type="text">
+	<p style="font-size: 17px; font-weight: bold; margin-bottom: 0;" id='target_name'>Name Loading...</p>
+	<i></em><p style="margin-top: 0px; margin-bottom: 7px;" id='target_headline'> Headline Loading...</p></i>
+
+	<p class="target_summary" style="margin-top: 0; color: #5F5F5F;" id="target_summary">Summary Loading...</p>
+
+	<h2 style="margin-bottom: 4px;">Formality</h2>
+	<p2 style="margin-top: 0;">The tone that your message will express</p2>
+	<br><br>
+	<input type="radio" id="professional" name="tone" value="professional">
+	<label for="professional">Professional</label><br>	
+	<input type="radio" id="casual" name="tone" value="casual">
+	<label for="casual">Casual</label><br>
+	<input type="radio" id="fun" name="tone" value="fun">
+	<label for="fun">Fun</label><br>
+
+	<h2 style="margin-bottom: 4px;">Message Intent</h2>
+	<p2 style="margin-top: 0;">The reason for your communication</p2>
+
+<br><br>
+	<select id="intention" name="intention" type="">
+        <option value="mentorship">Seeking mentorship</option>
+        <option value="connect">Invitation to connect on LinkedIn</option>
+        <option value="inquiry">Inquiring about a job posting</option>
+        <option value="recruiter">Hiring for a role</option>
+    </select>
+
+	
+	<br>
+	<br>
+	<!--<button class="settingsButton">Settings</button>-->
+	<button class="introButton">  <img src="generate.svg" align="center" style="margin-right: 10px; justify-content: center;" alt="pen"> Generate Message</button>
+
+	<button class="msgsButton"> <u> Switch to conversation mode </u></button>
 </body>
 </html>

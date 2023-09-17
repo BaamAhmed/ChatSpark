@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <title>ChatSpark</title>
+    <script src="messages.js"></script>
+    <img src="logo.svg" alt="ChatSpark">
+    <h2 style="font-family: P"></h2>
+
+    <style>
+        /*body {background-color: powderblue;}
+        */
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        h1   {color: blue;}
+        p2    {color: #5F5F5F; font-size: 15px;}
+        p {font-size: 14px;}
+        h2 {color: #212121;}
+        label {font-size: 15px;}
+        button{background-color: #DB560C; border-radius: 6px; border-color:0; block-size: 60px; width: 375px; color: white; border: none; margin-right: 20px; margin-bottom: 10px;
+        }
+
+        select{background-color: white; border-radius: 6px; border-color: #FFB48A; block-size: 60px; color: #DB560C; width: 375px; padding-left: 10px; font-size: 15px; margin-bottom: 10px;}
+
+
+        .profile{
+            background-color: white; border: none; color: #DB560C; font-size: 15px;
+        }
+
+        .introButton{
+            font-size: 15px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body style="padding: 20px; width: 25rem;">
+    <h2>Messages</h2>
+    <div id="responseContainer"></div>
+    <p id="messages">No messages found. Are you sure you're at the correct page? (Make sure you're on the "Messaging" page on LinkedIn)</p>
+	<br>
+    
+    <br>
+    <h2>Formality</h2>
+	<p2>The tone that your message will express</p2>
+	<br><br>
+	<input type="radio" id="polite" name="tone" value="polite">
+	<label for="polite">Polite</label><br>
+	<input type="radio" id="casual" name="tone" value="casual">
+	<label for="casual">Casual</label><br>
+	<input type="radio" id="professional" name="tone" value="professional">
+	<label for="professional">Professional</label>	
+	<br>
+    <h2>Message Intent</h2>
+	<p2>The reason for your communication</p2>
+    <br><br>
+	<select id="intention" name="intention" type="">
+        <option value="mentorship">Seeking mentorship</option>
+        <option value="inquiry">Inquiring about a job posting</option>
+        <option value="recruiter">Hiring for a role</option>
+        <option value="stall">Just keep the conversation going</option>
+    </select>
+    
+    <button class="messageButton"><img src="generate.svg" align="center" style="margin-right: 10px; justify-content: center;" alt="pen">Generate Message</button>
+    <button class="profile">Switch to Profile Mode</button>
+</body>
+</html>

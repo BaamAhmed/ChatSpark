@@ -4,9 +4,9 @@ chrome.runtime.sendMessage(getMessageData());
 
 function getMessageData() {
     let messages = []
-    let targetName = document.getElementsByClassName('msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text')[0]
+    let targetName = document.getElementsByClassName('artdeco-entity-lockup__title ember-view')[0]
     let rawMsgs = document.getElementsByClassName('msg-s-event-listitem__body t-14 t-black--light t-normal')
-    let rawAuthors = document.getElementsByClassName('msg-s-message-group__meta')
+    let rawAuthors = document.getElementsByClassName('msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text')
     for (let i = 0; i < rawAuthors.length && i < rawMsgs.length; i++) {
         messages.push(rawAuthors[i].innerText + ": " + rawMsgs[i].innerText)
     }
